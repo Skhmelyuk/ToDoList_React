@@ -15,6 +15,7 @@ const Hello = () => {
   }, [tasks])
 
   function addNewTask() {
+    if (!newTask) return
     const id = tasks.length ? tasks[tasks.length - 1].id + 1 : 1
     const task = { id, title: newTask, checked: false }
     setTasks([...tasks, task])

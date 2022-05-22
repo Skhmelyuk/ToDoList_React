@@ -1,3 +1,5 @@
+import LineItem from './LineItem'
+
 const DoneTask = ({ tasks, checkedTask, deleteTask }) => {
   return (
     <>
@@ -7,19 +9,11 @@ const DoneTask = ({ tasks, checkedTask, deleteTask }) => {
       </h2>
       <ul className="mask-list complete-list">
         {tasks.map((task) => (
-          <li key={task.id}>
-            <div>
-              <input
-                type="checkbox"
-                checked={task.checked}
-                onChange={() => checkedTask(task.id)}
-              />
-              <span>{task.title}</span>
-            </div>
-            <button onClick={() => deleteTask(task.id)} className="btn-remove">
-              Remove
-            </button>
-          </li>
+          <LineItem
+            task={task}
+            checkedTask={checkedTask}
+            deleteTask={deleteTask}
+          />
         ))}
       </ul>
     </>
